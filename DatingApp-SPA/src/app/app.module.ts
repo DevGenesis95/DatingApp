@@ -1,15 +1,16 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from "./app.component";
+import { AppComponent } from './app.component';
 
-import { NavbarComponent } from "./navbar/navbar.component";
-import { from } from "rxjs";
-import { AuthService } from "./_services/auth.service";
-import { HomeComponent } from "./home/home.component";
-import { RegisterComponent } from "./register/register.component";
+import { NavbarComponent } from './navbar/navbar.component';
+import { from } from 'rxjs';
+import { AuthService } from './_services/auth.service';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
+import { ErrorInterceptorProvider } from './_services/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { RegisterComponent } from "./register/register.component";
     RegisterComponent
   ],
   imports: [BrowserModule, HttpClientModule, FormsModule],
-  providers: [AuthService],
+  providers: [AuthService, ErrorInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
